@@ -52,7 +52,10 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+                ),
+                [
+                    'label' => 'Form Pekerja', 'url' => ['/site/form-pekerja']
+                ]    
         ],
     ]);
     NavBar::end();

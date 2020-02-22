@@ -145,4 +145,8 @@ class SiteController extends Controller
         }
         return $this->render('komentar',['model' => $model]);
     }
+
+    public function actionFormPekerja(){
+        return $this->render('formPekerja');
+    }
 }
