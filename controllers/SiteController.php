@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Pekerja;
 
 class SiteController extends Controller
 {
@@ -147,6 +148,11 @@ class SiteController extends Controller
     }
 
     public function actionFormPekerja(){
-        return $this->render('formPekerja');
+        $model = new Pekerja;
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            echo 'sukses';
+            die();
+        } 
+        return $this->render('formPekerja', compact('model'));
     }
 }
