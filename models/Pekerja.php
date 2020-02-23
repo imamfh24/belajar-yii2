@@ -2,14 +2,9 @@
 
 namespace app\models;
 
-use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class Pekerja extends Model {
-
-    public $nama;
-    public $jabatan;
-    public $email;
-    public $keterangan;
+class Pekerja extends ActiveRecord {
 
     public function rules(){
         return [
@@ -25,5 +20,17 @@ class Pekerja extends Model {
             2=> 'COO',
             3=> 'Supervisor',
         ];
+    }
+
+    public function labelJabatan(){
+        if($this->jabatan == 1){
+            return 'CEO';
+        } else if ($this->jabatan == 2) {
+            return 'COO';
+        } else if ($this->jabatan == 3) {
+            return 'Supurvisor';
+        } else {
+            return 'Unknown';
+        }
     }
 }
