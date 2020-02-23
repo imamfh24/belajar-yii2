@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * TbBenchmarkController implements the CRUD actions for TbBenchmark model.
@@ -26,6 +27,16 @@ class TbBenchmarkController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['update'],
+                'rules' => [
+                    [
+                        'allow' => 'true',
+                        'roles' => ['@']
+                    ]
+                ]
+            ]
         ];
     }
 
